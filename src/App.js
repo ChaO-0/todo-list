@@ -1,8 +1,25 @@
+import { useState } from 'react';
 import bgLight from './images/bg-desktop-light.jpg';
 import moonIcon from './images/icon-moon.svg';
 import List from './components/List';
 
-function App() {
+const App = () => {
+  const [items, setItems] = useState([
+    'Complete online javascript course',
+    'Jog around the park 3x',
+    '10 minutes meditation',
+    'Read for 1 hour',
+  ]);
+
+  const [item, setItem] = useState('');
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    setItems((prev) => [...prev, item]);
+  };
+
+  const handleChange = (e) => setItem(e.target.value);
+
   return (
     <div
       className="bg-scroll font-body h-72"
@@ -15,13 +32,17 @@ function App() {
         </div>
         <div className="pt-12 text-light relative">
           <span className="absolute border-2 rounded-full w-6 h-6 bottom-5 left-5 cursor-pointer"></span>
-          <input
-            type="text"
-            className="rounded-md px-3 pl-14 py-4 focus:outline-none w-full text-lg"
-          />
+          <form onSubmit={handleSubmit}>
+            <input
+              type="text"
+              className="rounded-md px-3 pl-14 py-4 focus:outline-none w-full text-lg"
+              value={item}
+              onChange={handleChange}
+            />
+          </form>
         </div>
 
-        <List />
+        <List items={items} setItems={setItems} />
 
         <div className="text-light text-center py-14 text-sm">
           Drag and drop to reorder list
@@ -29,6 +50,6 @@ function App() {
       </div>
     </div>
   );
-}
+};
 
 export default App;

@@ -1,37 +1,26 @@
-import { useState } from 'react';
+import ListItem from './ListItem';
 
-const List = () => {
-  const [check, setCheck] = useState(false);
+const List = ({ items, setItems }) => {
+  const handleDelete = (elm) => {
+    setItems((prev) => prev.filter((item) => item !== elm));
+  };
 
   return (
     <>
       <ul className="mt-5 rounded-t-md bg-white text-light cursor-pointer">
-        <li className="border-b-2 py-4 relative">
-          <span className="absolute border-2 rounded-full w-6 h-6 bottom-5 left-5 cursor-pointer"></span>
-          <div className="pl-14">Complete online Javascript course</div>
-        </li>
-        <li className="border-b-2 py-4 relative">
-          <span className="absolute border-2 rounded-full w-6 h-6 bottom-5 left-5 cursor-pointer"></span>
-          <div className="pl-14">Jog around the park 3x</div>
-        </li>
-        <li className="border-b-2 py-4 relative">
-          <span className="absolute border-2 rounded-full w-6 h-6 bottom-5 left-5 cursor-pointer"></span>
-          <div className="pl-14">10 minutes meditation</div>
-        </li>
-        <li className="border-b-2 py-4 relative">
-          <span className="absolute border-2 rounded-full w-6 h-6 bottom-5 left-5 cursor-pointer"></span>
-          <div className="pl-14">Read for 1 hour</div>
-        </li>
+        {items.map((item, idx) => (
+          <ListItem item={item} key={idx} handleDelete={handleDelete} />
+        ))}
       </ul>
 
       <div className="flex justify-between text-light text-xs px-6 py-4 bg-white rounded-b-md">
-        <div>5 items left</div>
+        <div>{items.length} items left</div>
         <div className="flex justify-between gap-7">
-          <div>All</div>
-          <div>Active</div>
-          <div>Completed</div>
+          <div className="cursor-pointer">All</div>
+          <div className="cursor-pointer">Active</div>
+          <div className="cursor-pointer">Completed</div>
         </div>
-        <div>Clear completed</div>
+        <div className="cursor-pointer">Clear completed</div>
       </div>
     </>
   );
