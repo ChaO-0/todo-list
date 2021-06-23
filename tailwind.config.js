@@ -8,6 +8,9 @@ module.exports = {
       },
       colors: {
         light: 'hsl(235, 19%, 35%)',
+        blueCheck: 'hsl(192, 100%, 67%)',
+        purpleCheck: 'hsl(280, 87%, 65%)',
+        completed: 'hsl(236, 33%, 92%)',
       },
     },
   },
