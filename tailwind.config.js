@@ -11,6 +11,8 @@ module.exports = {
         blueCheck: 'hsl(192, 100%, 67%)',
         purpleCheck: 'hsl(280, 87%, 65%)',
         completed: 'hsl(236, 33%, 92%)',
+        blueFilter: 'hsl(220, 98%, 61%)',
+        lightGray: 'hsl(236, 9%, 61%)',
       },
     },
   },
