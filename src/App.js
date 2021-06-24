@@ -4,18 +4,45 @@ import moonIcon from './images/icon-moon.svg';
 import List from './components/List';
 
 const App = () => {
+  // const [items, setItems] = useState([
+  //   'Complete online javascript course',
+  //   'Jog around the park 3x',
+  //   '10 minutes meditation',
+  //   'Read for 1 hour',
+  // ]);
+
   const [items, setItems] = useState([
-    'Complete online javascript course',
-    'Jog around the park 3x',
-    '10 minutes meditation',
-    'Read for 1 hour',
+    {
+      id: 0,
+      text: 'Complete online javascript course',
+      completed: false,
+    },
+    {
+      id: 1,
+      text: 'Jog around the park 3x',
+      completed: false,
+    },
+    {
+      id: 2,
+      text: '10 minutes meditation',
+      completed: false,
+    },
+    {
+      id: 3,
+      text: 'Read for 1 hour',
+      completed: false,
+    },
   ]);
 
   const [item, setItem] = useState('');
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    setItems((prev) => [...prev, item]);
+    setItems((prev) => [
+      ...prev,
+      { id: prev.length, text: item, completed: false },
+    ]);
+    setItem('');
   };
 
   const handleChange = (e) => setItem(e.target.value);
