@@ -16,6 +16,10 @@ const List = ({ items, setItems }) => {
     }
   };
 
+  const handleComplete = () => {
+    setItems((prev) => prev.filter((item) => !item.completed));
+  };
+
   const [filterType, setFilterType] = useState('all');
 
   return (
@@ -81,7 +85,12 @@ const List = ({ items, setItems }) => {
             Completed
           </div>
         </div>
-        <div className="cursor-pointer hover:text-light">Clear completed</div>
+        <div
+          className="cursor-pointer hover:text-light"
+          onClick={handleComplete}
+        >
+          Clear completed
+        </div>
       </div>
     </>
   );
