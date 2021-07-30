@@ -43,21 +43,25 @@ const initState = {
 const reducer = (state = initState, action) => {
   switch (action.type) {
     case ADD_TODO:
+      const updatedItems = [
+        ...state.items,
+        { id: id++, text: action.payload.text, completed: false },
+      ];
+
       return {
         ...state,
-        items: [
-          ...state.items,
-          {
-            id: id++,
-            text: action.payload.text,
-            completed: false,
-          },
-        ],
+        items: updatedItems,
+        activeItems: updatedItems,
+        completedItems: updatedItems.filter((item) => item.completed),
       };
     case DELETE_TODO:
+      const newItems = state.items.filter((item) => item.id !== action.payload);
+
       return {
         ...state,
-        items: state.items.filter((item) => item.id !== action.payload),
+        items: newItems,
+        activeItems: newItems.filter((item) => !item.completed),
+        completedItems: newItems.filter((item) => item.completed),
       };
     case TOGGLE_TODO:
       const elementsIndex = state.items.findIndex(
