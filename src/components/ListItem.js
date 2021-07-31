@@ -9,21 +9,25 @@ const ListItem = ({ item }) => {
   return (
     <>
       <span
-        className={`absolute border-2 rounded-full w-6 h-6 bottom-5 left-5 cursor-pointer ${
+        className={`absolute border dark:border-veryDarkGrayishBlue duration-500 rounded-full w-6 h-6 bottom-5 left-5 cursor-pointer ${
           item.completed
             ? 'bg-gradient-to-br from-blueCheck to-purpleCheck'
-            : 'bg-white'
+            : 'bg-white dark:bg-desaturatedDarkBlue'
         } `}
         onClick={() => dispatch(toggleTodo(item.id))}
       >
         <img
           src={checkIcon}
           alt="check icon"
-          className="object-none object-center w-5 h-5"
+          className={`object-none object-center w-5 h-5 ${
+            !item.completed && 'hidden'
+          }`}
         />
       </span>
       <div
-        className={`pl-14 ${item.completed && 'line-through text-completed'}`}
+        className={`pl-14 duration-500 dark:text-lightGrayishBlue ${
+          item.completed && 'line-through text-completed'
+        }`}
       >
         {item.text}
       </div>

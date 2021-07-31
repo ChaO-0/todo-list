@@ -20,7 +20,7 @@ const List = () => {
 
   return (
     <>
-      <ul className="mt-5 rounded-t-md bg-white text-light cursor-pointer">
+      <ul className="mt-5 rounded-t-md bg-white text-light cursor-pointer dark:bg-desaturatedDarkBlue duration-500">
         {Filterable()}
       </ul>
       <Footer />

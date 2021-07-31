@@ -32,7 +32,7 @@ const Footer = () => {
   };
 
   return (
-    <div className="flex justify-between text-lightGray text-xs px-6 py-4 bg-white rounded-b-md">
+    <div className="flex justify-between text-lightGray text-xs px-6 py-4 bg-white dark:bg-desaturatedDarkBlue rounded-b-md duration-500">
       <div>{itemsLength()} items left</div>
       <div className="flex justify-between gap-7">
         {filterTypes.map((filter) => (
@@ -42,6 +42,7 @@ const Footer = () => {
               'text-blueFilter hover:text-blueFilter'
             }`}
             onClick={() => dispatch(setFilter(filter.type))}
+            key={filter.type}
           >
             {filter.text}
           </div>

@@ -12,6 +12,24 @@ const FilteredList = ({ items }) => {
     dispatch(sortTodo(items, result.source.index, result.destination.index));
   };
 
+  function getStyle(style, snapshot) {
+    if (!snapshot.isDropAnimating) {
+      return style;
+    }
+    const { moveTo, curve, duration } = snapshot.dropAnimation;
+    // move to the right spot
+    const translate = `translate(${moveTo.x}px, ${moveTo.y}px)`;
+    // add a bit of turn for fun
+    const rotate = 'rotate(0.5turn)';
+
+    // patching the existing style
+    return {
+      ...style,
+      // slowing down the drop because we can
+      transition: `all 500ms`,
+    };
+  }
+
   return (
     <DragDropContext onDragEnd={onDragEnd}>
       <Droppable droppableId="droppable">
@@ -25,10 +43,11 @@ const FilteredList = ({ items }) => {
               >
                 {(provided, snapshot) => (
                   <li
-                    className="border-b-2 py-4 relative list-item"
+                    className="border-b py-4 relative list-item bg-white dark:bg-desaturatedDarkBlue dark:border-veryDarkGrayishBlue2"
                     ref={provided.innerRef}
                     {...provided.draggableProps}
                     {...provided.dragHandleProps}
+                    style={getStyle(provided.draggableProps.style, snapshot)}
                   >
                     <ListItem item={item} />
                   </li>
