@@ -5,6 +5,7 @@ import {
   DELETE_TODO,
   SET_FILTER,
   SORT_TODO,
+  TOGGLE_THEME,
   TOGGLE_TODO,
 } from './actionTypes';
 
@@ -37,4 +38,8 @@ export const sortTodo = (list, start, end) => ({
 export const setFilter = (filterType) => ({
   type: SET_FILTER,
   payload: filterType,
+});
+
+export const toggleTheme = () => ({
+  type: TOGGLE_THEME,
 });

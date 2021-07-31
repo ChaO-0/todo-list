@@ -4,6 +4,7 @@ import {
   DELETE_TODO,
   SET_FILTER,
   SORT_TODO,
+  TOGGLE_THEME,
   TOGGLE_TODO,
 } from './actionTypes';
 import { ACTIVE, ALL, COMPLETED } from './filterTypes';
@@ -38,6 +39,7 @@ const initState = {
   activeItems: defaultItems,
   completedItems: [],
   filterType: ALL,
+  dark: false,
 };
 
 const reducer = (state = initState, action) => {
@@ -77,6 +79,11 @@ const reducer = (state = initState, action) => {
         items: newArray,
         activeItems: newArray.filter((item) => !item.completed),
         completedItems: newArray.filter((item) => item.completed),
+      };
+    case TOGGLE_THEME:
+      return {
+        ...state,
+        dark: !state.dark,
       };
     case CLEAR_COMPLETED_TODO:
       return {
