@@ -37,7 +37,7 @@ const Footer = () => {
       <div className="flex justify-between gap-7">
         {filterTypes.map((filter) => (
           <div
-            className={`cursor-pointer hover:text-light ${
+            className={`menu ${
               filter.type === reduxFilterType &&
               'text-blueFilter hover:text-blueFilter'
             }`}
@@ -48,10 +48,7 @@ const Footer = () => {
           </div>
         ))}
       </div>
-      <div
-        className="cursor-pointer hover:text-light"
-        onClick={() => dispatch(clearCompletedTodo())}
-      >
+      <div className="menu" onClick={() => dispatch(clearCompletedTodo())}>
         Clear completed
       </div>
     </div>

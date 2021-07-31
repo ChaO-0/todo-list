@@ -9,7 +9,7 @@ const ListItem = ({ item }) => {
   return (
     <>
       <span
-        className={`absolute border dark:border-veryDarkGrayishBlue duration-500 rounded-full w-6 h-6 bottom-5 left-5 cursor-pointer ${
+        className={`check-outline ${
           item.completed
             ? 'bg-gradient-to-br from-blueCheck to-purpleCheck'
             : 'bg-white dark:bg-desaturatedDarkBlue'

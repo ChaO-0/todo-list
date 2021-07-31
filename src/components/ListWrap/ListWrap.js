@@ -24,13 +24,13 @@ const ListCard = () => {
 
   return (
     <div className={`transition ${darkTheme && 'dark'}`}>
-      <div className="min-h-screen bg-completed dark:bg-darkBlue duration-500">
+      <div className="wrapper duration-500">
         <div
           className="bg-scroll font-body h-72"
           style={{ backgroundImage: `url(${darkTheme ? bgDark : bgLight})` }}
         >
-          <div className="container mx-auto md:max-w-xl max-w-sm pt-16 text-white font-bold">
-            <div className="flex justify-between text-4xl tracking-widest">
+          <div className="header-wrapper">
+            <div className="header-flex">
               <div className="">T O D O</div>
               <img
                 src={darkTheme ? sunIcon : moonIcon}
@@ -40,11 +40,11 @@ const ListCard = () => {
               />
             </div>
             <div className="pt-12 text-light relative">
-              <span className="absolute border dark:border-veryDarkGrayishBlue rounded-full w-6 h-6 bottom-5 left-5 cursor-pointer"></span>
+              <span className="check-outline"></span>
               <form onSubmit={handleSubmit}>
                 <input
                   type="text"
-                  className="rounded-md px-3 pl-14 py-4 focus:outline-none w-full text-lg dark:bg-desaturatedDarkBlue duration-500"
+                  className="input-form duration-500"
                   value={item}
                   onChange={handleChange}
                   placeholder="Create a new todo..."

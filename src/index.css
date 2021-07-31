@@ -2,3 +2,29 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer components {
+  .check-outline {
+    @apply absolute border dark:border-veryDarkGrayishBlue duration-500 rounded-full w-6 h-6 bottom-5 left-5 cursor-pointer;
+  }
+
+  .menu {
+    @apply cursor-pointer hover:text-light;
+  }
+
+  .input-form {
+    @apply rounded-md px-3 pl-14 py-4 focus:outline-none w-full text-lg dark:bg-desaturatedDarkBlue;
+  }
+
+  .header-wrapper {
+    @apply container mx-auto md:max-w-xl max-w-sm pt-16 text-white font-bold;
+  }
+
+  .wrapper {
+    @apply min-h-screen bg-completed dark:bg-darkBlue;
+  }
+
+  .header-flex {
+    @apply flex justify-between text-4xl tracking-widest;
+  }
+}
