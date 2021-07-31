@@ -15,7 +15,7 @@ const FilteredList = ({ items }) => {
   return (
     <DragDropContext onDragEnd={onDragEnd}>
       <Droppable droppableId="droppable">
-        {(provided, snapshot) => (
+        {(provided) => (
           <div {...provided.droppableProps} ref={provided.innerRef}>
             {items.map((item, idx) => (
               <Draggable
@@ -23,7 +23,7 @@ const FilteredList = ({ items }) => {
                 draggableId={item.id.toString()}
                 index={idx}
               >
-                {(provided, snapshot) => (
+                {(provided) => (
                   <li
                     className="border-b py-4 relative list-item bg-white dark:bg-desaturatedDarkBlue dark:border-veryDarkGrayishBlue2"
                     ref={provided.innerRef}
