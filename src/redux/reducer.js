@@ -89,6 +89,7 @@ const reducer = (state = initState, action) => {
       return {
         ...state,
         items: state.items.filter((item) => !item.completed),
+        activeItems: state.activeItems.filter((item) => !item.completed),
         completedItems: [],
       };
     case SORT_TODO:
