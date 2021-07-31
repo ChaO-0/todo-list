@@ -12,33 +12,29 @@ const FilteredList = ({ items }) => {
     dispatch(sortTodo(items, result.source.index, result.destination.index));
   };
 
+  const droppableList = (provided) => (
+    <div {...provided.droppableProps} ref={provided.innerRef}>
+      {items.map((item, idx) => (
+        <Draggable key={item.id} draggableId={item.id.toString()} index={idx}>
+          {(provided) => (
+            <li
+              className="border-b py-4 relative list-item bg-white dark:bg-desaturatedDarkBlue dark:border-veryDarkGrayishBlue2"
+              ref={provided.innerRef}
+              {...provided.draggableProps}
+              {...provided.dragHandleProps}
+            >
+              <ListItem item={item} />
+            </li>
+          )}
+        </Draggable>
+      ))}
+      {provided.placeholder}
+    </div>
+  );
+
   return (
     <DragDropContext onDragEnd={onDragEnd}>
-      <Droppable droppableId="droppable">
-        {(provided) => (
-          <div {...provided.droppableProps} ref={provided.innerRef}>
-            {items.map((item, idx) => (
-              <Draggable
-                key={item.id}
-                draggableId={item.id.toString()}
-                index={idx}
-              >
-                {(provided) => (
-                  <li
-                    className="border-b py-4 relative list-item bg-white dark:bg-desaturatedDarkBlue dark:border-veryDarkGrayishBlue2"
-                    ref={provided.innerRef}
-                    {...provided.draggableProps}
-                    {...provided.dragHandleProps}
-                  >
-                    <ListItem item={item} />
-                  </li>
-                )}
-              </Draggable>
-            ))}
-            {provided.placeholder}
-          </div>
-        )}
-      </Droppable>
+      <Droppable droppableId="droppable">{droppableList}</Droppable>
     </DragDropContext>
   );
 };
