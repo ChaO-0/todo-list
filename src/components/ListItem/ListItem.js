@@ -1,7 +1,7 @@
-import checkIcon from '../images/icon-check.svg';
-import crossIcon from '../images/icon-cross.svg';
+import checkIcon from '../../images/icon-check.svg';
+import crossIcon from '../../images/icon-cross.svg';
 import { useDispatch } from 'react-redux';
-import { deleteTodo, toggleTodo } from '../redux/actions';
+import { deleteTodo, toggleTodo } from '../../redux/actions';
 
 const ListItem = ({ item }) => {
   const dispatch = useDispatch();
@@ -26,7 +26,8 @@ const ListItem = ({ item }) => {
       </span>
       <div
         className={`pl-14 duration-500 dark:text-lightGrayishBlue ${
-          item.completed && 'line-through text-completed'
+          item.completed &&
+          'line-through text-completed dark:text-darkGrayishBlue'
         }`}
       >
         {item.text}

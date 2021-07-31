@@ -1,7 +1,7 @@
 import { useSelector } from 'react-redux';
-import { ACTIVE, COMPLETED } from '../redux/filterTypes';
-import Footer from './Footer';
-import FilteredList from './FilteredList';
+import { ACTIVE, COMPLETED } from '../../redux/filterTypes';
+import Footer from '../Footer/Footer';
+import FilteredList from '../FilteredList/FilteredList';
 
 const List = () => {
   const reduxItems = useSelector((state) => state.items);

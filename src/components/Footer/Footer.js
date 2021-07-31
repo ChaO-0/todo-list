@@ -1,6 +1,6 @@
 import { useDispatch, useSelector } from 'react-redux';
-import { setFilter, clearCompletedTodo } from '../redux/actions';
-import { ACTIVE, ALL, COMPLETED } from '../redux/filterTypes';
+import { setFilter, clearCompletedTodo } from '../../redux/actions';
+import { ACTIVE, ALL, COMPLETED } from '../../redux/filterTypes';
 
 const Footer = () => {
   const reduxItems = useSelector((state) => state.items);

@@ -1,12 +1,12 @@
 import { useState } from 'react';
-import bgLight from '../images/bg-desktop-light.jpg';
-import bgDark from '../images/bg-desktop-dark.jpg';
-import moonIcon from '../images/icon-moon.svg';
-import sunIcon from '../images/icon-sun.svg';
-import List from './List';
+import bgLight from '../../images/bg-desktop-light.jpg';
+import bgDark from '../../images/bg-desktop-dark.jpg';
+import moonIcon from '../../images/icon-moon.svg';
+import sunIcon from '../../images/icon-sun.svg';
+import List from '../List/List';
 import { useDispatch, useSelector } from 'react-redux';
-import { toggleTheme } from '../redux/actions';
-import { TOGGLE_THEME } from '../redux/actionTypes';
+import { toggleTheme } from '../../redux/actions';
+import { TOGGLE_THEME } from '../../redux/actionTypes';
 
 const ListCard = () => {
   const dispatch = useDispatch();
@@ -47,6 +47,7 @@ const ListCard = () => {
                   className="rounded-md px-3 pl-14 py-4 focus:outline-none w-full text-lg dark:bg-desaturatedDarkBlue duration-500"
                   value={item}
                   onChange={handleChange}
+                  placeholder="Create a new todo..."
                 />
               </form>
             </div>
