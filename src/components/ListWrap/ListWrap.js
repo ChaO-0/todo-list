@@ -26,7 +26,7 @@ const ListCard = () => {
     <div className={`transition ${darkTheme && 'dark'}`}>
       <div className="wrapper duration-500">
         <div
-          className="bg-scroll font-body h-72"
+          className="bg-scroll font-body h-72 bg-no-repeat bg-center lg:bg-cover lg:bg-top"
           style={{ backgroundImage: `url(${darkTheme ? bgDark : bgLight})` }}
         >
           <div className="header-wrapper">
