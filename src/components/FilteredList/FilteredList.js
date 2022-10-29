@@ -17,14 +17,16 @@ const FilteredList = ({ items }) => {
       {items.map((item, idx) => (
         <Draggable key={item.id} draggableId={item.id.toString()} index={idx}>
           {(provided) => (
-            <li
-              className="border-b py-4 relative list-item bg-white dark:bg-desaturatedDarkBlue dark:border-veryDarkGrayishBlue2"
-              ref={provided.innerRef}
-              {...provided.draggableProps}
-              {...provided.dragHandleProps}
-            >
-              <ListItem item={item} />
-            </li>
+            <div className="border-b">
+              <li
+                className="rounded py-4 relative list-item bg-white dark:bg-desaturatedDarkBlue dark:border-veryDarkGrayishBlue2"
+                ref={provided.innerRef}
+                {...provided.draggableProps}
+                {...provided.dragHandleProps}
+              >
+                <ListItem item={item} />
+              </li>
+            </div>
           )}
         </Draggable>
       ))}
